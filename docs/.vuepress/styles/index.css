@@ -1,0 +1,61 @@
+/* 全屏背景设置 - 仅在首页生效 */
+/* VuePress Reco 主题首页通常有 'home' 类，或者我们可以针对 body 进行更具体的选择 */
+
+/* 默认 body 背景为白色（或主题色），用于非首页 */
+body {
+  background-color: var(--c-bg) !important;
+  background-image: none !important;
+}
+
+/* 仅在首页应用背景图 */
+/* 注意：VuePress 2 中，首页的 body 或 html 标签可能不直接带 home 类 */
+/* 我们使用更具体的选择器策略，或者假设主题会在首页的 container 上加类 */
+/* Reco 主题首页通常会包含 banner-brand__wrapper */
+
+/* 更好的方式：利用首页特有的类。通常首页的 <div id="app"> 下面会有特定的 layout */
+/* 如果 body 上有 home 类（标准 VuePress 行为），则如下： */
+body.home {
+  background-image: url('/封面.jpg') !important;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center 64px;
+  background-repeat: no-repeat;
+}
+
+/* 导航栏样式调整 - 确保背景色不透明 */
+.navbar-container {
+  background-color: var(--c-bg) !important;
+}
+html.dark .navbar-container {
+  background-color: var(--c-bg) !important;
+}
+
+/* 移除 Banner 区域的默认背景，使其透明（仅在首页生效） */
+.banner-brand__wrapper {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* 调整 Feature 卡片的样式，增加半透明效果和毛玻璃质感（仅在首页生效） */
+.features__container .features__item {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 深色模式适配 */
+html.dark .features__container .features__item {
+  background-color: rgba(30, 30, 30, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 确保页面主要容器背景也是透明的（仅在首页生效，配合 body 背景） */
+/* 注意：非首页的 .page 背景通常需要是白色的 */
+body.home .page {
+  background-color: transparent !important;
+}
+
+/* 非首页页面背景确保为白色（或主题背景色） */
+body:not(.home) .page {
+  background-color: var(--c-bg) !important;
+}
