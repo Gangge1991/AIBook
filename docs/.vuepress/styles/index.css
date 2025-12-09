@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* 全屏背景设置 - 仅在首页生效 */
 /* VuePress Reco 主题首页通常有 'home' 类，或者我们可以针对 body 进行更具体的选择 */
 
@@ -38,15 +42,113 @@ html.dark .navbar-container {
 
 /* 调整 Feature 卡片的样式，增加半透明效果和毛玻璃质感（仅在首页生效） */
 .features__container .features__item {
-  background-color: rgba(255, 255, 255, 0.8) !important;
-  backdrop-filter: blur(10px);
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  /* backdrop-filter: blur(10px); */
   border: 1px solid rgba(255, 255, 255, 0.3);
+  height: 160px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  padding: 2rem !important;
+}
+
+/* 覆盖 MagicCard 内部可能的背景元素 */
+.features__container .features__item .magic-card__bg {
+  display: none !important;
+  background: transparent !important;
+}
+
+/* Remove MagicCard radial gradient effect (the "disk" behind the card) */
+.features__container .features__item::before {
+  display: none !important;
+  background: none !important;
+  content: none !important;
+}
+
+/* Feature Item Hover Effect - Show Background Image from Item Data */
+.features__container .features__item:hover {
+  background-image: var(--feature-hover-img) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Hide text when hovering over the feature item */
+.features__container .features__item:hover h4,
+.features__container .features__item:hover p {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.features__container .features__item h4 {
+  font-size: 30px !important;
+  font-weight: bold !important;
+  margin-top: 0 !important;
+  margin-bottom: 1.5rem !important;
 }
 
 /* 深色模式适配 */
 html.dark .features__container .features__item {
-  background-color: rgba(30, 30, 30, 0.8) !important;
+  background-color: transparent !important;
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* PersonCards Styles (Mimic Features) */
+.person-cards__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px); /* Fixed width 105px */
+  gap: 0.75rem; /* Half of 1.5rem */
+  margin-top: 1rem;
+}
+
+.person-cards__container .person-cards__item {
+  background: transparent !important;
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Light mode border */
+  height: 400px !important; /* Half of 150px */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  padding: 0.5rem !important;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+html.dark .person-cards__container .person-cards__item {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Remove MagicCard internals */
+.person-cards__container .person-cards__item .magic-card__bg,
+.person-cards__container .person-cards__item::before {
+  display: none !important;
+}
+
+/* Hover Effect */
+.person-cards__container .person-cards__item:hover {
+  background-image: var(--card-bg-img) !important;
+  background-size: cover !important;
+  background-position: center top !important; /* Top focus for portraits */
+  background-repeat: no-repeat !important;
+}
+
+/* Hide text on hover */
+.person-cards__container .person-cards__item:hover h4,
+.person-cards__container .person-cards__item:hover p {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.person-cards__container .person-cards__item h4 {
+  font-size: 24px !important;
+  font-weight: bold !important;
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+  text-align: center;
 }
 
 /* 确保页面主要容器背景也是透明的（仅在首页生效，配合 body 背景） */
@@ -58,4 +160,191 @@ body.home .page {
 /* 非首页页面背景确保为白色（或主题背景色） */
 body:not(.home) .page {
   background-color: var(--c-bg) !important;
+}
+
+/* Button Group Layout - Grid 3 columns */
+.banner-brand__wrapper .banner-brand__content .btn-group {
+  display: grid !important;
+  grid-template-columns: repeat(3, auto) !important;
+  gap: 64px !important;
+  justify-content: center !important;
+}
+
+/* Banner Text Styling - Striking Colors */
+.banner-brand__content .title {
+  color: #56d97b !important; /* Bright Red */
+  /* text-shadow: 2px 2px 0px #FFFFFF, -2px -2px 0px #FFFFFF, 2px -2px 0px #FFFFFF, -2px 2px 0px #FFFFFF !important;  */
+  /* White Outline */
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  font-size: 80px !important;
+  
+  /* Override gradient text from theme */
+  /* background: none !important;
+  -webkit-background-clip: unset !important;*/
+  /* background-clip: unset !important; */
+  /* -webkit-text-fill-color: initial !important; */
+}
+
+.banner-brand__content .description {
+  color: #00FFFF !important; /* Cyan */
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 1) !important; */
+  font-weight: 900 !important;
+  font-size: 32px !important; /* Larger */
+  /* background: rgba(0, 0, 0, 0.5); Semi-transparent background */
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.banner-brand__content .tagline {
+  color: #FFFF00 !important; /* Yellow */
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 1) !important; */
+  font-weight: 900 !important;
+  font-size: 28px !important;
+  margin-top: 15px !important;
+  /* background: rgba(0, 0, 0, 0.5); */
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Button styling - Double size */
+.banner-brand__wrapper .banner-brand__content .btn-group .xicon-container {
+  height: 80px !important;
+  width: 280px !important; /* Fixed width for equal size */
+  padding: 0 10px !important; /* Reduced padding since width is fixed */
+  /* font-size will be overridden by inner element style, so we target .xicon-content below */
+  line-height: 80px !important;
+  border-radius: 16px !important;
+  margin: 0 !important;
+  color: black !important;
+  font-weight: bold !important;
+  display: flex !important; /* Ensure flex layout for centering */
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Target the inner text span to override inline styles from Xicons component */
+.banner-brand__wrapper .banner-brand__content .btn-group .xicon-container .xicon-content {
+  font-size: 21px !important;
+  color: black !important;
+}
+
+/* Button Hover effect - Red */
+.banner-brand__wrapper .banner-brand__content .btn-group .xicon-container:hover {
+  background-color: red !important;
+  border-color: red !important;
+  color: white !important;
+}
+
+/* Adjust spacing between Banner and Features */
+.banner-brand__wrapper {
+  height: auto !important;
+  min-height: auto !important;
+  padding-top: 120px !important;
+  padding-bottom: 20px !important;
+}
+
+.features__container {
+  margin-top: 32px !important;
+}
+
+/* Sidebar Toggle Logic */
+body.sidebar-hidden .series-container {
+  display: none !important;
+}
+
+/* Page Title Styling - Larger and Bolder */
+.page-title {
+  font-size: 64px !important;
+  font-weight: 900 !important;
+  margin-top: 20px !important;
+  margin-bottom: 40px !important;
+}
+
+/* Content List Styling - Larger and Bolder */
+.theme-reco-md-content ul li {
+  font-size: 24px !important;
+  font-weight: bold !important;
+  line-height: 2 !important;
+  margin-bottom: 12px !important;
+}
+
+.theme-reco-md-content ul li a {
+  font-size: 24px !important;
+  font-weight: bold !important;
+}
+
+/* Align Page Content and Navbar to Left (Full Width) */
+.theme-container .page-container {
+  margin-left: 0 !important;
+  max-width: 100% !important;
+}
+
+.navbar-container .navbar-inner {
+  margin-left: 0 !important;
+  max-width: 100% !important;
+}
+
+/* 搜索框样式调整 - 使得输入框背景变白，文字更醒目 */
+/* 针对 vuepress-plugin-search-pro 的样式覆盖 */
+
+/* 1. Modal 背景 */
+.search-pro-modal {
+  background-color: #ffffff !important;
+}
+
+html.dark .search-pro-modal {
+  background-color: #1e1e1e !important; /* 深色模式下的背景 */
+}
+
+/* 2. 输入框背景和文字 */
+.search-pro-input {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+}
+
+html.dark .search-pro-input {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+}
+
+/* 3. 搜索结果标题背景 (sticky header) */
+.search-pro-result-title {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+}
+
+html.dark .search-pro-result-title {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+}
+
+/* 4. 搜索结果项 */
+.search-pro-result-item {
+  color: #333333 !important;
+}
+
+html.dark .search-pro-result-item {
+  color: #cccccc !important;
+}
+
+/* 5. 选中项的高亮背景 */
+.search-pro-result-item.active {
+  background-color: #f0f0f0 !important;
+}
+
+html.dark .search-pro-result-item.active {
+  background-color: #333333 !important;
+}
+
+/* 6. 确保占位符也能看清 */
+.search-pro-input::placeholder {
+  color: #999999 !important;
+}
+
+/* Feature Description Text - Black Color */
+.features__container .features__item p {
+  color: black !important;
 }

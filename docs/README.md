@@ -2,32 +2,66 @@
 home: true
 modules:
   - BannerBrand
-  - Features
-  - Footer
+  - CustomFeatures
+  - CustomFooter
+  # - footer
 bannerBrand:
   bgImage: /封面.jpg
-  title: AI修仙传
-  description: A book about AI to God
+  title:    AI修仙传
+  description: A Magic Web about AI to God！
   tagline: 欢迎道友，一起踏上AI修仙之路！
   buttons:
-    - text: AI知识库 →
-      link: AI/AI知识库/README.md
+    - text: 点击开始修仙 →
+      link: /AI/AI教程/README.md
       type: primary
-    - text: AI学习教程 →
-      link: AI/AI教程/README.md
+    - text: AI各大宗门 →
+      link: AI/AI导航/002AI站点.md
       type: primary
-    - text: AI导航 →
-      link: AI/AI导航/README.md
-      type: primary
+    # - text: AI学习教程 →
+    #   link: AI/AI教程/README.md
+    #   type: primary
+    # - text: AI导航 →
+    #   link: AI/AI导航/README.md
+    #   type: primary
+    # - ype: primary
+    # - ttext: 炼气期必看 →
+    #   link: AI/炼气期必看/README.md
+    #   text: 修仙人文素养 →
+    #   link: AI/人文素养/README.md
+    #   type: primary
+    # - text: 留言板 →
+    #   link: AI/留言板/README.md
+    #   type: primary
 features:
 - title: AI知识库
   details: 最新AI资讯，化神期修士进阶宝典。
+  link: /AI/AI知识库/README.md
+  hoverImage: /pics/gif1.gif
 - title: AI学习教程
   details: 一步一步修炼，从练气至化神指日可待。
+  link: /AI/AI教程/README.md
+  hoverImage: /pics/gif6.gif
 - title: AI导航
   details: 各类AI修仙技能藏经阁。
-footer: MIT Licensed | Copyright © 2026-present Gang
+  link: /AI/AI导航/README.md
+  hoverImage: /pics/gif2.gif
+- title: 炼气期必看
+  details: 炼气人必看AI修仙指南。
+  link: /AI/炼气期必看/README.md
+  hoverImage: /pics/gif3.gif
+- title: 修仙人文素养
+  details: 修仙人必备的人文素养。
+  link: /AI/人文素养/README.md
+  hoverImage: /pics/gif4.gif
+- title: AI下载站
+  details: 道友吐槽圣地。
+  link: /AI/AI下载站/README.md
+  hoverImage: /pics/gif5.gif
+# footer: footer
 ---
+
+# 欢迎来到AI修仙传，踏上你的AI修仙之路！
+## 这是一个完全免费开放的AI知识共享平台，汇总整合目前热门的AI信息，包括AI学习教程、产品介绍、使用指南、技巧分享、应用场景、AI 变现、行业资讯、教程资源等一系列内容。涉及的国内外各种大模型：chatGPT、Deepseek、Deepseek-r1、QWEN、GROK 等等
 
 <!-- ---
 permalink: /
@@ -35,7 +69,7 @@ permalink: /
 
 # 欢迎来到AI修仙传，踏上你的AI修仙之路！
 
-这是一个完全免费开放的AI知识共享平台，汇总整合目前热门的AI信息，包括AI学习教程、产品介绍、使用指南、技巧分享、应用场景、AI 变现、行业资讯、教程资源等一系列内容。涉及的国内外各种大模型：chatGPT、Deepseek、Deepseek-r1、QWEN、GROK 等等
+
 
 
 

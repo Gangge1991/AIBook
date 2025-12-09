@@ -1,27 +1,27 @@
 export default [
   {
-    text: "AI 项目",
+    text: "💪AI 项目",
     children: [
       {
-        text: "AI项目1",
-        link: "/ai-海龟汤项目教程/",
+        text: "♠️AI项目1",
+        link: "AI/AI知识库/AI项目001.md",
       },
       {
-        text: "AI项目1",
-        link: "/ai-cursor-开发一个亲戚计算器/",
+        text: "AI项目2",
+        link: "AI/AI知识库/AI项目002.md",
       },
     ],
   },
   {
-    text: "Deepseek",
+    text: "🌺大模型",
     children: [
       {
-        text: "关于DeepSeek001",
-        link: "/Deepseek/#关于deepseek",
+        text: "大模型官网导航",
+        link: "AI/AI知识库/大模型官网.md",
       },
       {
-        text: "关于DeepSeek002",
-        link: "/ai/#deepseek使用指南",
+        text: "各类大模型教程",
+        link: "AI/AI知识库/大模型教程.md",
       },
     ],
   },
@@ -30,7 +30,7 @@ export default [
     link: "http://ai2god.club/",
   },
   {
-    text: "作者",
-    link: "/docs/AI知识库/开发作者介绍.md",
+    text: "	🎱作者",
+    link: "/AI/AI知识库/001开发者介绍.md",
   },
 ];

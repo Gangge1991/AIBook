@@ -1,9 +1,18 @@
 import { defineClientConfig } from 'vuepress/client'
 import { onMounted, watch, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import CustomFooter from './components/CustomFooter.vue'
+import CustomFeatures from './components/CustomFeatures.vue'
+import PersonCards from './components/PersonCards.vue'
+import SidebarToggle from './components/SidebarToggle.vue'
+import ExtraSideBar from './components/ExtraSideBar.vue'
 
 export default defineClientConfig({
-  enhance({ app, router, siteData }) {},
+  enhance({ app, router, siteData }) {
+    app.component('CustomFooter', CustomFooter)
+    app.component('CustomFeatures', CustomFeatures)
+    app.component('PersonCards', PersonCards)
+  },
   setup() {
     const route = useRoute()
     const isHome = ref(false)
@@ -35,5 +44,5 @@ export default defineClientConfig({
       }
     )
   },
-  rootComponents: [],
+  rootComponents: [SidebarToggle, ExtraSideBar],
 })

@@ -1,7 +1,9 @@
-FROM node:18-alpine AS builder
+FROM node:24-alpine AS builder
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci
+# Install dependencies (including devDependencies for build)
+RUN npm ci --legacy-peer-deps
+# RUN npm ci 
 COPY docs ./docs
 ENV NODE_ENV=production
 RUN npm run build
