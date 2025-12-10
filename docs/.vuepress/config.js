@@ -1,13 +1,14 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import recoTheme from 'vuepress-theme-reco'
 import { defineUserConfig } from "vuepress";
-import { searchProPlugin } from "vuepress-plugin-search-pro";
+// import { searchProPlugin } from "vuepress-plugin-search-pro";
 // import extraSideBar from "./extraSideBar";
 import footer from "./footer";
 import navbar from "./navbar";
 import sidebar from "./sidebar";
 import extraSideBar from "./extraSideBar";
-
+import { slimsearchPlugin } from '@vuepress/plugin-slimsearch'
+import { pinyin } from 'pinyin-pro';
 
 export default defineUserConfig({
   public: 'docs/.vuepress/pubic',
@@ -73,24 +74,65 @@ export default defineUserConfig({
   }),
 
   plugins: [
-    searchProPlugin({
-      // 索引全部内容
+    // searchProPlugin({
+    //   // 索引全部内容
+    //   indexContent: true,
+    //   // 关闭搜索提示和历史
+    //   autoSuggestions: false,
+    //   queryHistoryCount: 0,
+    //   resultHistoryCount: 0,
+    //   // 为分类和标签添加索引
+    //   customFields: [
+    //     {
+    //       getter: (page) => page.frontmatter.category,
+    //       formatter: "分类：$content",
+    //     },
+    //     {
+    //       getter: (page) => page.frontmatter.tag,
+    //       formatter: "标签：$content",
+    //     },
+    //   ],
+    // }),
+    slimsearchPlugin({
+       // 已启用全文搜索
       indexContent: true,
-      // 关闭搜索提示和历史
+      suggestion: false,
       autoSuggestions: false,
-      queryHistoryCount: 0,
+      queryHistoryCount: 5,
       resultHistoryCount: 0,
-      // 为分类和标签添加索引
-      customFields: [
-        {
-          getter: (page) => page.frontmatter.category,
-          formatter: "分类：$content",
-        },
-        {
-          getter: (page) => page.frontmatter.tag,
-          formatter: "标签：$content",
-        },
-      ],
+  //     customFields: [
+  //       {
+  //         getter: (page) => {
+  //           try {
+  //             return pinyin(page.contentRendered, { toneType: 'none', type: 'array', v: true }).join(' ');
+  //           } catch (e) {
+  //             return "";
+  //           }
+  //         },
+  //         formatter: "拼音内容：$content",
+  //       }
+  //     ],
+  //     indexOptions: {
+  //       tokenize: (text, fieldName) => {
+  //         const tokens = [];
+  //         const regex = /[a-zA-Z0-9_]+|[\u4e00-\u9fa5]+/g;
+  //         let match;
+  //         while ((match = regex.exec(text)) !== null) {
+  //           tokens.push(match[0]);
+  //         }
+  //         return tokens;
+  //       },
+  //       processTerm: (term) => {
+  //         const lowerTerm = term.toLowerCase();
+  //         if (/[\u4e00-\u9fa5]/.test(lowerTerm)) {
+  //           const py = pinyin(lowerTerm, { toneType: 'none', type: 'array', v: true });
+  //           const fullPinyin = py.join('');
+  //           const firstLetters = py.map(p => p[0]).join('');
+  //           return [lowerTerm, fullPinyin, firstLetters];
+  //         }
+  //         return lowerTerm;
+  //       }
+  //     }
     }),
   ],
 

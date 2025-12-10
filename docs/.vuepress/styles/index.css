@@ -100,14 +100,7 @@ html.auto .navbar-container {
   opacity: 0 !important;
 }
 
-/* Search Modal Background */
-.search-pro-modal {
-  background-color: #ffffff !important;
-}
 
-html.dark .search-pro-modal {
-  background-color: #1e1e1e !important;
-}
 
 .features__container .features__item h4 {
   font-size: 30px !important;
@@ -186,7 +179,8 @@ body.home .page {
 
 /* 非首页页面背景确保为白色（或主题背景色） */
 body:not(.home) .page {
-  background-color: var(--c-bg) !important;
+  background-color: transparent !important;
+  /* background-color: var(--c-bg) !important; */
 }
 
 /* Button Group Layout - Grid 3 columns */
@@ -212,6 +206,11 @@ body:not(.home) .page {
   -webkit-background-clip: unset !important;*/
   /* background-clip: unset !important; */
   /* -webkit-text-fill-color: initial !important; */
+}
+
+/* 侧边栏样式调整 - 左边界左移 */
+.series-container {
+  padding-left: 0 !important; /* 原为 p-6 (1.5rem) */
 }
 
 .banner-brand__content .description {
@@ -285,6 +284,14 @@ body.sidebar-hidden .series-container {
   display: none !important;
 }
 
+/* Right Sidebar Toggle Logic */
+body.right-sidebar-hidden .page-catalog-container,
+body.right-sidebar-hidden .catalog-wrapper,
+body.right-sidebar-hidden .sub-sidebar-wrapper,
+body.right-sidebar-hidden .vuepress-toc {
+  display: none !important;
+}
+
 /* Page Title Styling - Larger and Bolder */
 .page-title {
   font-size: 40px !important;
@@ -320,8 +327,305 @@ body.sidebar-hidden .series-container {
 }
 
 /* 颜色模式按钮颜色定义 */
+/* 搜索结果弹窗样式调整 */
 :root {
-  --mode-toggle-light: #fbbf24; /* 日间模式 - 金色 */
-  --mode-toggle-dark: #60a5fa;  /* 夜间模式 - 蓝色 */
-  --mode-toggle-auto: #34d399;  /* 自动模式 - 绿色 */
+  /* --mode-toggle-light: #fbbf24; 日间模式 - 金色 */
+  /*--mode-toggle-dark: #60a5fa;   夜间模式 - 蓝色 */
+  /* --mode-toggle-auto: #34d399;  自动模式 - 绿色 */
+  --slimsearch-modal-bg-color: #ffffff;
+  --slimsearch-modal-text-color: #000000;
+  --slimsearch-highlight-color: var(--c-brand);
 }
+
+.slimsearch-modal {
+  background-color: #ffffff !important;
+  color: var(--slimsearch-modal-text-color) !important;
+}
+
+/* html.dark .slimsearch-modal {
+  background-color: #1e1e1e !important;
+  color: var(--slimsearch-modal-text-color) !important;
+}
+
+html.auto .slimsearch-modal {
+  background-color: #dd1818 !important;
+} */
+
+.slimsearch-result-item.active {
+  background-color: var(--c-bg-light) !important;
+  border-left-color: #000000 !important;
+}
+
+.slimsearch-result-title mark {
+  background-color: transparent !important;
+  color: #000000 !important;
+  font-weight: bold;}
+
+
+/* html.dark .slimsearch-result-item.active {
+  background-color: #1e1e1e !important;
+}
+html.auto .slimsearch-result-item.active {
+  background-color: #dd1818 !important;
+} */
+
+
+
+
+
+
+
+
+
+
+
+/* 这一块可以删掉 */
+/* Dark Mode Text Visibility Fixes */
+
+/* 0. CSS Variables Override (Root Fix) */
+html.dark {
+  --c-text: #000000 !important;
+  --c-text-title: #000000 !important;
+  --c-text-sub: #333333 !important;
+  --c-text-accent: #000000 !important;
+  color: #000000 !important;
+}
+
+/* 1. Main Content Headers */
+html.dark .theme-reco-md-content h1,
+html.dark .theme-reco-md-content h2,
+html.dark .theme-reco-md-content h3,
+html.dark .theme-reco-md-content h4,
+html.dark .theme-reco-md-content h5,
+html.dark .theme-reco-md-content h6 {
+  color: #000000 !important; /* Deep Black */
+  background: none !important;
+  -webkit-text-fill-color: #000000 !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  opacity: 1 !important;
+}
+
+
+/* 2. Main Content Paragraphs and Lists */
+html.dark .theme-reco-md-content p,
+html.dark .theme-reco-md-content ul,
+html.dark .theme-reco-md-content ol,
+html.dark .theme-reco-md-content li,
+html.dark .theme-reco-md-content table {
+  color: #000000 !important; /* Deep Black */
+  opacity: 1 !important;
+}
+
+
+
+/* 3. Right Sidebar / Catalog / TOC */
+html.dark .catalog-container,
+html.dark .catalog-item,
+html.dark .catalog-title {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+html.dark .catalog-container a {
+   color: #000000 !important;
+}
+html.dark .catalog-container a:hover,
+html.dark .catalog-container a.active {
+   color: var(--c-brand) !important;
+}
+
+/* 4. Left Sidebar / Series */
+html.dark .series-container,
+html.dark .series-container .title,
+html.dark .series-container .series-heading,
+html.dark .series-container .series-item,
+html.dark .series-container .link,
+html.dark .series-container a,
+html.dark .series-container span,
+html.dark .series-container div,
+html.dark .sidebar-heading,
+html.dark .sidebar-item,
+html.dark .sidebar-group-items,
+html.dark .sidebar .sidebar-links,
+html.dark .sidebar-group,
+html.dark aside.sidebar *,
+html.dark aside.series-container * {
+  color: #000000 !important;
+  opacity: 1 !important;
+  background: none !important;
+  -webkit-text-fill-color: #000000 !important;
+  text-shadow: none !important;
+}
+
+html.dark .series-container .series-item.active,
+html.dark .series-container .link.active,
+html.dark .series-container a.active,
+html.dark .series-container .router-link-active,
+html.dark .sidebar-item.active,
+html.dark a.sidebar-link.active {
+  color: var(--c-brand, #3b82f6) !important;
+  -webkit-text-fill-color: var(--c-brand, #3b82f6) !important;
+}
+
+
+/* 5. Aggressive Broad Content Headers (Fix for missing wrapper class or catalog pages) */
+html.dark .page h1,
+html.dark .page h2,
+html.dark .page h3,
+html.dark .page h4,
+html.dark .page h5,
+html.dark .page h6,
+html.dark .content h1,
+html.dark .content h2,
+html.dark .content h3,
+html.dark .content h4,
+html.dark .content h5,
+html.dark .content h6,
+html.dark .md-content h1,
+html.dark .md-content h2,
+html.dark .md-content h3,
+html.dark .md-content h4,
+html.dark .md-content h5,
+html.dark .md-content h6,
+html.dark h2.title,
+html.dark .catalog-section-title,
+html.dark .catalog-section-heading,
+html.dark .catalog-title {
+  color: #000000 !important;
+  background: none !important;
+  -webkit-text-fill-color: #000000 !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+/* 6. Specific fix for Catalog Items text (Right Sidebar) */
+/* Reco Theme 2.x uses .page-catalog-container */
+html.dark .page-catalog-container,
+html.dark .page-catalog-container .tip,
+html.dark .page-catalog-container ul,
+html.dark .page-catalog-container li,
+html.dark .page-catalog-container .page-catalog-item,
+html.dark .page-catalog-container span,
+html.dark .page-catalog-container a,
+html.dark .page-catalog-menu-depth_2,
+html.dark .page-catalog-menu-depth_3,
+html.dark .catalog-item .title,
+html.dark .catalog-item .header,
+html.dark .catalog-list .title,
+html.dark .catalog-wrapper .catalog-content .catalog-list .catalog-item .catalog-link,
+html.dark .catalog-wrapper .catalog-content .catalog-list .catalog-item > span,
+html.dark .catalog-wrapper .catalog-content .catalog-list .catalog-item > a,
+html.dark .catalog-wrapper .catalog-content .catalog-title,
+html.dark nav.catalog-content a,
+html.dark aside.catalog-wrapper a,
+html.dark .catalog-link,
+html.dark .catalog-item-content {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  opacity: 1 !important;
+  background: none !important;
+  text-shadow: none !important;
+}
+
+/* 7. Force ALL text in right sidebar to be black in dark mode (Broad Fallback) */
+html.dark .catalog-wrapper *,
+html.dark .catalog-content *,
+html.dark .sub-sidebar-wrapper *,
+html.dark .page-catalog-container * {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  opacity: 1 !important;
+}
+
+/* 8. Active State - Keep Brand Color */
+html.dark .page-catalog-container .active .page-catalog-item,
+html.dark .page-catalog-container .active span,
+html.dark .page-catalog-container li:hover .page-catalog-item,
+html.dark .page-catalog-container li:hover span,
+html.dark .catalog-link.active,
+html.dark .catalog-item.active > .catalog-link {
+    color: var(--c-brand, #3b82f6) !important;
+    -webkit-text-fill-color: var(--c-brand, #3b82f6) !important;
+}
+
+/* ==========================================================================
+   AUTO / LIGHT MODE FIXES - Force Deep Black
+   ========================================================================== */
+
+/* 1. Left Sidebar / Series - Auto/Light Mode */
+html:not(.dark) .series-container,
+html:not(.dark) .series-container *,
+html:not(.dark) aside.sidebar * {
+  color: #000000 !important;
+  opacity: 1 !important;
+  background: none !important;
+  -webkit-text-fill-color: #000000 !important;
+  text-shadow: none !important;
+}
+
+html:not(.dark) .series-container .series-item.active,
+html:not(.dark) .series-container .link.active,
+html:not(.dark) .series-container a.active,
+html:not(.dark) .series-container .router-link-active,
+html:not(.dark) .sidebar-item.active,
+html:not(.dark) a.sidebar-link.active {
+  color: var(--c-brand, #3b82f6) !important;
+  -webkit-text-fill-color: var(--c-brand, #3b82f6) !important;
+}
+
+/* 2. Right Sidebar / Catalog - Auto/Light Mode */
+html:not(.dark) .page-catalog-container,
+html:not(.dark) .page-catalog-container .page-catalog-item,
+html:not(.dark) .page-catalog-container span,
+html:not(.dark) .page-catalog-menu-depth_2,
+html:not(.dark) .page-catalog-menu-depth_3,
+html:not(.dark) .catalog-wrapper *,
+html:not(.dark) .catalog-content *,
+html:not(.dark) .sub-sidebar-wrapper * {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  opacity: 1 !important;
+  background: none !important;
+  text-shadow: none !important;
+}
+
+/* Active State for Right Sidebar - Auto/Light Mode */
+html:not(.dark) .page-catalog-container .active .page-catalog-item,
+html:not(.dark) .page-catalog-container .active span,
+html:not(.dark) .page-catalog-container li:hover .page-catalog-item,
+html:not(.dark) .page-catalog-container li:hover span,
+html:not(.dark) .catalog-link.active,
+html:not(.dark) .catalog-item.active > .catalog-link {
+    color: var(--c-brand, #3b82f6) !important;
+    -webkit-text-fill-color: var(--c-brand, #3b82f6) !important;
+}
+
+/* Sidebar Link Hover Effect - Red, Bold and 1.5x scale */
+html .series-container a:hover,
+html aside.sidebar a:hover,
+html .sidebar-links a:hover {
+  transform: scale(1.2);
+  transform-origin: left center;
+  display: inline-block;
+  transition: all 0.2s ease;
+  z-index: 100;
+  position: relative;
+}
+
+/* Force color and weight on hover for link and all children */
+html .series-container a:hover,
+html .series-container a:hover *,
+html aside.sidebar a:hover,
+html aside.sidebar a:hover *,
+html .sidebar-links a:hover,
+html .sidebar-links a:hover * {
+  color: red !important;
+  -webkit-text-fill-color: red !important;
+  font-weight: bold !important;
+  opacity: 1 !important;
+}
+
+
+

@@ -42,7 +42,7 @@ const toggleSidebar = () => {
 .sidebar-toggle-btn {
   position: fixed;
   bottom: 80px;
-  left: 17rem; /* Default position when sidebar is open (16rem + 1rem) */
+  left: 15rem; /* Default position when sidebar is open (16rem + 1rem) */
   z-index: 50; /* Above sidebar content but below modals */
   width: 40px;
   height: 40px;

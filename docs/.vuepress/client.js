@@ -5,7 +5,9 @@ import CustomFooter from './components/CustomFooter.vue'
 import CustomFeatures from './components/CustomFeatures.vue'
 import PersonCards from './components/PersonCards.vue'
 import SidebarToggle from './components/SidebarToggle.vue'
+import RightSidebarToggle from './components/RightSidebarToggle.vue'
 import ExtraSideBar from './components/ExtraSideBar.vue'
+import SidebarResizer from './components/SidebarResizer.vue'
 
 export default defineClientConfig({
   enhance({ app, router, siteData }) {
@@ -70,5 +72,5 @@ export default defineClientConfig({
       }
     )
   },
-  rootComponents: [SidebarToggle, ExtraSideBar],
+  rootComponents: [SidebarToggle, RightSidebarToggle, ExtraSideBar, SidebarResizer],
 })

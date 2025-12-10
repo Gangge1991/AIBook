@@ -11,11 +11,11 @@ bannerBrand:
   description: A Magic Web about AI to God！
   tagline: 欢迎道友，一起踏上AI修仙之路！
   buttons:
-    - text: 点击开始修仙 →
-      link: /AI/AI教程/
+    - text: 点击开始AI修仙 →
+      link: /AI/AIjiaocheng/
       type: primary
     - text: AI各大宗门 →
-      link: /AI/AI导航/002AI站点.md
+      link: /AI/AIdaohang/002AIzhandian.html
       type: primary
     # - text: AI学习教程 →
     #   link: /AI/AI教程/
@@ -29,33 +29,31 @@ bannerBrand:
     #   text: 修仙人文素养 →
     #   link: /AI/人文素养/
     #   type: primary
-    # - text: 留言板 →
-    #   link: /AI/留言板/
-    #   type: primary
+
 features:
 - title: AI知识库
   details: 最新AI资讯，化神期修士进阶宝典。
-  link: /AI/AI知识库/
+  link: /AI/AIzhishiku/
   hoverImage: /pics/gif1.gif
 - title: AI学习教程
   details: 一步一步修炼，从练气至化神指日可待。
-  link: /AI/AI教程/
+  link: /AI/AIjiaocheng/
   hoverImage: /pics/gif6.gif
 - title: AI导航
   details: 各类AI修仙技能藏经阁。
-  link: /AI/AI导航/
+  link: /AI/AIdaohang/
   hoverImage: /pics/gif2.gif
 - title: 炼气期必看
   details: 炼气人必看AI修仙指南。
-  link: /AI/炼气期必看/
+  link: /AI/lianqiqibikan/
   hoverImage: /pics/gif3.gif
 - title: 修仙人文素养
   details: 修仙人必备的人文素养。
-  link: /AI/人文素养/
+  link: /AI/renwensuyang/
   hoverImage: /pics/gif4.gif
 - title: AI下载站
   details: 道友吐槽圣地。
-  link: /AI/AI下载站/
+  link: /AI/AIxiazaizhan/
   hoverImage: /pics/gif5.gif
 # footer: footer
 ---
