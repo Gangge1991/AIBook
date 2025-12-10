@@ -35,6 +35,32 @@ export default defineClientConfig({
 
     onMounted(() => {
       updateBodyClass(route.path)
+
+      // 自动模式检测逻辑
+      // 轮询检查 localStorage 中的 vuepress-reco-color-scheme
+      // 如果不存在，说明是 auto 模式，给 html 添加 auto 类
+      const APPEARANCE_KEY = 'vuepress-reco-color-scheme'
+      const checkAutoMode = () => {
+        const userPreference = localStorage.getItem(APPEARANCE_KEY)
+        const html = document.documentElement
+        if (!userPreference) {
+          // 不存在偏好设置，即为 Auto 模式
+          if (!html.classList.contains('auto')) {
+            html.classList.add('auto')
+          }
+        } else {
+          // 存在偏好设置（light 或 dark），移除 auto 类
+          if (html.classList.contains('auto')) {
+            html.classList.remove('auto')
+          }
+        }
+      }
+
+      // 立即执行一次
+      checkAutoMode()
+      
+      // 设置定时器轮询（200ms）
+      setInterval(checkAutoMode, 200)
     })
 
     watch(
