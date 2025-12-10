@@ -2,8 +2,8 @@ export default {
   "/": [
     {
       text: "AI知识库",
-      collapsible: true,
-      collapsed: false,
+      // collapsible: true,
+      // collapsed: false,
       children: [
         { text: "开发者介绍", link: "/AI/AI知识库/001开发者介绍.md" },
         { text: "每日学习记录", link: "/AI/AI知识库/2025年每日学习记录.md" },
@@ -11,8 +11,8 @@ export default {
     },
     {
       text: "AI导航",
-      collapsible: true,
-      collapsed: false,
+      // collapsible: true,
+      // collapsed: false,
       children: [
         { text: "AI技能大全", link: "/AI/AI导航/001AI技能大全.md" },
         { text: "AI网址导航", link: "/AI/AI导航/002AI站点.md"}
@@ -20,8 +20,8 @@ export default {
     },
     {
       text: "AI教程",
-      collapsible: true,
-      collapsed: false,
+      // collapsible: true,
+      // collapsed: false,
       children: [
         { text: "AI基础知识", link: "/AI/AI教程/000AI资源.md"},
         { text: "Python教程", link: "/AI/AI教程/001Python.md"},
@@ -47,8 +47,8 @@ export default {
     },
     {
       text: "炼气期必看",
-      collapsible: true,
-      collapsed: false,
+      // collapsible: true,
+      // collapsed: false,
       children: [
         { text: "后端修炼路线之Java篇", link: "/AI/炼气期必看/后端Java学习路线.md" },
         { text: "后端修炼路线之Python篇", link: "/AI/炼气期必看/后端Python学习路线.md" },
@@ -57,8 +57,8 @@ export default {
     },
     {
       text: "AI神识修炼",
-      collapsible: true,
-      collapsed: false,
+      // collapsible: true,
+      // collapsed: false,
       children: [
         { text: "人文01", link: "/AI/人文素养/人文01.md" },
         { text: "人文02", link: "/AI/人文素养/人文01.md"}
@@ -66,8 +66,8 @@ export default {
     },
     {
       text: "AI下载站",
-      collapsible: true,
-      collapsed: false,
+      // collapsible: true,
+      // collapsed: false,
       children: [
         { text: "AI下载001", link: "/AI/AI下载站/下载01.md" },
         { text: "AI下载002", link: "/AI/AI下载站/下载01.md"}
